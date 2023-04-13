@@ -5,7 +5,7 @@ const startButton = document.getElementById("start-button");
 const questionContainerElement = document.getElementById('question-container');
 const questionElement = document.getElementById('question');
 const answerButtonsElement = document.getElementById('answers-buttons');
-const remainingTime = 0
+let remainingTime = 0
  
 startButton.addEventListener('click', startGame);
 // How to switch to next question? 
@@ -49,7 +49,12 @@ function startGame () {
 
 function setNextQuestion() {
     resetState() 
-    showQuestion(shuffledQuestions[currentQuestionIndex])
+    if ( currentQuestionIndex === 4) {
+        remainingTime = secondsLeft;
+    } else {
+        showQuestion(shuffledQuestions[currentQuestionIndex])
+        
+    }
 }
 
 function showQuestion(question) {
@@ -82,12 +87,7 @@ function selectAnswer(event) {
         setStatusClass(button, button.dataset.correct);
     });
     // How to dynamically switch to last screen?
-    if ( currentQuestionIndex === 4) {
-        let remainingTime = secondsLeft;
-    } else {
-        showQuestion(shuffledQuestions[currentQuestionIndex])
-        
-    }
+   
 
 }
 
