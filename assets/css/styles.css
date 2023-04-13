@@ -45,3 +45,7 @@ header {
 .hide {
     display: none;
 }
+
+#button-appearance {
+    list-style: none; 
+}
