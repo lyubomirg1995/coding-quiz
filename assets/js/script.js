@@ -82,7 +82,7 @@ function selectAnswer(event) {
         setStatusClass(button, button.dataset.correct);
     });
     // How to dynamically switch to last screen?
-    if ( currentQuestionIndex === 5) {
+    if ( currentQuestionIndex === 4) {
         let remainingTime = secondsLeft;
     } else {
         showQuestion(shuffledQuestions[currentQuestionIndex])
