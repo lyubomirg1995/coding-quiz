@@ -4,7 +4,7 @@ var secondsLeft = 40;
 const startButton = document.getElementById("start-button");
 const questionContainerElement = document.getElementById('question-container');
 const questionElement = document.getElementById('question');
-const answerButtonsElement = document.getElementById('answer-buttons');
+const answerButtonsElement = document.getElementById('answers-buttons');
  
 startButton.addEventListener('click', startGame);
 // How to switch to next question? 
@@ -14,6 +14,11 @@ let shuffledQuestions, currentQuestionIndex;
 
 
 function startGame () {
+
+    answerButtonsElement.addEventListener('click',() => {
+        currentQuestionIndex++
+        setNextQuestion()
+    })
 
     //Sets interval in variable
     console.log('Start Game');
@@ -43,6 +48,7 @@ function startGame () {
 
 function setNextQuestion() {
     resetState() 
+    
     showQuestion(shuffledQuestions[currentQuestionIndex])
 }
 
@@ -51,6 +57,7 @@ function showQuestion(question) {
     question.answers.forEach(answers => {
         const button = document.createElement('button')
         button.innerText = answers.text
+
         if (answers.correct) {
             button.dataset.correct = answers.correct
         }
