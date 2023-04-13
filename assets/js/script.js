@@ -48,13 +48,7 @@ function startGame () {
 
 function setNextQuestion() {
     resetState() 
-    console.log(currentQuestionIndex);
-    if(currentQuestionIndex > shuffledQuestions.length -1) {
-        showQuestion(shuffledQuestions[currentQuestionIndex])
-    } else {
-        
-    }
-    //Call function to end game and enter highscore
+    showQuestion(shuffledQuestions[currentQuestionIndex])
 }
 
 function showQuestion(question) {
